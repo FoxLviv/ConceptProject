@@ -4,10 +4,16 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 16.0.29806.167
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Reporter.UI", "Reporter.UI.csproj", "{D0067E4E-9971-47C5-982C-E041519E4A61}"
+	ProjectSection(ProjectDependencies) = postProject
+		{3EBF06F1-652C-42F7-8C70-B235482DCEEC} = {3EBF06F1-652C-42F7-8C70-B235482DCEEC}
+	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Reporter.BL", "..\Reporter.BL\Reporter.BL.csproj", "{3EBF06F1-652C-42F7-8C70-B235482DCEEC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Reporter.BL", "..\Reporter.BL\Reporter.BL.csproj", "{3EBF06F1-652C-42F7-8C70-B235482DCEEC}"
+	ProjectSection(ProjectDependencies) = postProject
+		{E05357E4-4BA9-4A52-99A4-454CBA5BE4D5} = {E05357E4-4BA9-4A52-99A4-454CBA5BE4D5}
+	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Reporter.DL", "..\Reporter.DL\Reporter.DL.csproj", "{E05357E4-4BA9-4A52-99A4-454CBA5BE4D5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Reporter.DL", "..\Reporter.DL\Reporter.DL.csproj", "{E05357E4-4BA9-4A52-99A4-454CBA5BE4D5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
