@@ -28,7 +28,7 @@ namespace Reporter.DL
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionBuilder)
         {
-            optionBuilder.UseSqlServer("Data Source=DESKTOP-8DEVSOF;Initial Catalog=Reporter;Integrated Security=True");//"Server=(localdb)\\mssqllocaldb;Database=Reporter;Trusted_Connection=True;"
+            optionBuilder.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=Reporter;Trusted_Connection=True;");//"Server=(localdb)\\mssqllocaldb;Database=Reporter;Trusted_Connection=True;"
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
