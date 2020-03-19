@@ -3,11 +3,29 @@ using System.Collections.Generic;
 using System.Text;
 
 namespace Reporter.DL.Repositories {
-    interface IRepository<T> where T:class {
+    public interface IRepository<T> where T:class {
+        /// <summary>
+        ///     Read all values
+        /// </summary>
+        /// <returns></returns>
         IEnumerable<T> ReadAll();
-        T GetById(int Id);
+
+        /// <summary>
+        ///     Create entity in database
+        /// </summary>
+        /// <param name="entity"></param>
         void Create(T entity);
+
+        /// <summary>
+        ///     Update entiry
+        /// </summary>
+        /// <param name="entity"></param>
         void Update(T entity);
+
+        /// <summary>
+        ///     Delete entity
+        /// </summary>
+        /// <param name="id"></param>
         void Delete(int id);
     }
 }

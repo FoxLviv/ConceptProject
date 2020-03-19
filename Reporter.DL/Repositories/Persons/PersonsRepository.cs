@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Text;
 
 namespace Reporter.DL.Repositories.Persons {
-    public class PersonsRepository: IRepository<PersonEntity> {
+    public class PersonsRepository: IPersonsRepository {
         private ReporterDBContext _dbContext;
         public PersonsRepository(ReporterDBContext dbContext) {
             this._dbContext = dbContext;
@@ -18,7 +18,7 @@ namespace Reporter.DL.Repositories.Persons {
             _dbContext.Persons.Add(entity);
         }
 
-        public PersonEntity GetById(int Id) {
+        public PersonEntity GetByUId(Guid Id) {
             return _dbContext.Persons.Find(Id);
         }
 
@@ -33,5 +33,4 @@ namespace Reporter.DL.Repositories.Persons {
             }
         }
     }
-
 }
