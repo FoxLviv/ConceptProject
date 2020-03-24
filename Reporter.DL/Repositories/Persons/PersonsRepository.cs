@@ -1,17 +1,20 @@
-﻿using Reporter.DL.Entities;
+﻿using Reporter.Common.Models;
+using Reporter.DL.Entities;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace Reporter.DL.Repositories.Persons {
     public class PersonsRepository: IPersonsRepository {
-        private ReporterDBContext _dbContext;
+        private ReporterDBContext _dbContext; 
+
         public PersonsRepository(ReporterDBContext dbContext) {
             this._dbContext = dbContext;
         }
 
         public IEnumerable<PersonEntity> ReadAll() {
-            return _dbContext.Persons;
+            var persons = _dbContext.Persons;
+            return persons;
         }
 
         public void Create(PersonEntity entity) {
@@ -26,7 +29,7 @@ namespace Reporter.DL.Repositories.Persons {
             _dbContext.Persons.Update(entity);
         }
 
-        public void Delete(int id) {
+        public void Delete(Guid id) {
             PersonEntity person = _dbContext.Persons.Find(id);
             if (person != null) {
                 _dbContext.Persons.Remove(person);

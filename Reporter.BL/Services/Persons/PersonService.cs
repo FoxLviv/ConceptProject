@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
-using Reporter.BL.Common.Models;
+using Reporter.Common.DTOs;
+using Reporter.DL.Entities;
 using Reporter.DL.Repositories.Persons;
 using System;
 using System.Collections.Generic;
@@ -27,7 +28,12 @@ namespace Reporter.BL.Services.Persons {
         }
 
         public void Update(PersonDTO person) {
-            
+            var personeEntity = _mapper.Map<PersonEntity>(person);
+            _personRepositiry.Update(personeEntity);
+        }
+
+        public void Delete(Guid id) {
+            _personRepositiry.Delete(id);
         }
     }
 }

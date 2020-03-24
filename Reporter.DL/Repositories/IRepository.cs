@@ -22,10 +22,5 @@ namespace Reporter.DL.Repositories {
         /// <param name="entity"></param>
         void Update(T entity);
 
-        /// <summary>
-        ///     Delete entity
-        /// </summary>
-        /// <param name="id"></param>
-        void Delete(int id);
     }
 }

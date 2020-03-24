@@ -22,4 +22,8 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Reporter.Common\Reporter.Common.csproj" />
+  </ItemGroup>
+
 </Project>

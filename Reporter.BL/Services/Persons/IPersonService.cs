@@ -1,4 +1,4 @@
-﻿using Reporter.BL.Common.Models;
+﻿using Reporter.Common.DTOs;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -18,6 +18,12 @@ namespace Reporter.BL.Services.Persons {
         /// <param name="id"></param>
         /// <returns></returns>
         PersonDTO GetByUid(Guid id);
+
+        /// <summary>
+        ///     Delete Persone by id
+        /// </summary>
+        /// <param name="id"></param>
+        void Delete(Guid id);
 
     }
 }

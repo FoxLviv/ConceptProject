@@ -9,6 +9,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Reporter.Common\Reporter.Common.csproj" />
     <ProjectReference Include="..\Reporter.DL\Reporter.DL.csproj" />
   </ItemGroup>
 
