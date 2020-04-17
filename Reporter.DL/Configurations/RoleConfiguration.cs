@@ -9,6 +9,7 @@ namespace Reporter.DL.Configurations
 {
     public class RoleConfiguration : IEntityTypeConfiguration<RoleEntity>
     {
+        /// <inheritdoc/>
         public void Configure(EntityTypeBuilder<RoleEntity> builder)
         {
             builder.HasKey(role => role.Id);

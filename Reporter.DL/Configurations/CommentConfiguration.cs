@@ -6,6 +6,7 @@ namespace Reporter.DL.Configurations
 {
     public class CommentConfiguration : IEntityTypeConfiguration<CommentEntity>
     {
+        /// <inheritdoc/>
         public void Configure(EntityTypeBuilder<CommentEntity> builder)
         {
             builder.HasKey(comment => comment.Id);

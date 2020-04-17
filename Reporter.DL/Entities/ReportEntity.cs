@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace Reporter.DL.Entities
 {
-    public class ReportEntity:BaseEntity
+    public class ReportEntity : BaseEntity
     {
         public Guid AuthorId { get; set; }
 
