@@ -15,7 +15,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Reporter.BL", "..\Reporter.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Reporter.DL", "..\Reporter.DL\Reporter.DL.csproj", "{E05357E4-4BA9-4A52-99A4-454CBA5BE4D5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Reporter.Common", "..\Reporter.Common\Reporter.Common.csproj", "{E77F8AD7-2183-4E31-9207-220FAB2CC7B5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Reporter.Common", "..\Reporter.Common\Reporter.Common.csproj", "{E77F8AD7-2183-4E31-9207-220FAB2CC7B5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{87785EE3-F963-4A11-A78C-B11EAF8C070A}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -6,6 +6,7 @@ namespace Reporter.DL.Configurations
 {
     public class PersonConfiguration : IEntityTypeConfiguration<PersonEntity>
     {
+        /// <inheritdoc/>
         public void Configure(EntityTypeBuilder<PersonEntity> builder)
         {
             builder.HasKey(person => person.Id);

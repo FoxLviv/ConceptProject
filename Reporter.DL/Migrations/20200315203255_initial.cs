@@ -5,6 +5,7 @@ namespace Reporter.DL.Migrations
 {
     public partial class initial : Migration
     {
+        /// <inheritdoc/>
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
@@ -179,6 +180,7 @@ namespace Reporter.DL.Migrations
                 column: "AuthorId");
         }
 
+        /// <inheritdoc/>
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(

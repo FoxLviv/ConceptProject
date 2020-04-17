@@ -6,6 +6,7 @@ namespace Reporter.DL.Configurations
 {
     public class ReportConfiguration : IEntityTypeConfiguration<ReportEntity>
     {
+        /// <inheritdoc/>
         public void Configure(EntityTypeBuilder<ReportEntity> builder)
         {
             builder.HasKey(report => report.Id);
@@ -23,7 +24,7 @@ namespace Reporter.DL.Configurations
 
             builder.Property(e => e.Report)
                 .HasMaxLength(5000)
-                .IsRequired();            
+                .IsRequired();
         }
     }
 }

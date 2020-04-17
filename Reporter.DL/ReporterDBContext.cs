@@ -1,16 +1,13 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Reporter.DL.Configurations;
 using Reporter.DL.Entities;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Reporter.DL
 {
-    public class ReporterDBContext: DbContext
+    public class ReporterDBContext : DbContext
     {
-        public ReporterDBContext(DbContextOptions<ReporterDBContext> options) : base(options) { }
+        public ReporterDBContext(DbContextOptions<ReporterDBContext> options)
+            : base(options) { }
 
         public DbSet<RoleEntity> Roles { get; set; }
 
@@ -26,11 +23,13 @@ namespace Reporter.DL
 
         public DbSet<FacultieEntity> Faculties { get; set; }
 
+        /// <inheritdoc/>
         protected override void OnConfiguring(DbContextOptionsBuilder optionBuilder)
         {
-            optionBuilder.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=Reporter;Trusted_Connection=True;");//"Server=(localdb)\\mssqllocaldb;Database=Reporter;Trusted_Connection=True;"
+            optionBuilder.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=Reporter;Trusted_Connection=True;");
         }
 
+        /// <inheritdoc/>
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
