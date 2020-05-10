@@ -10,7 +10,7 @@ namespace Reporter.BL.Mapper
 
             var mappingConfig = new MapperConfiguration(mc =>
             {
-                //mc.AddProfile(new ServicesMapperProfile());
+                mc.AddProfile(new ServicesMapperProfile());
                 mc.AllowNullCollections = true;
             });
 
