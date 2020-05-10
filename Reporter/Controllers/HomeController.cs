@@ -8,7 +8,6 @@ using Microsoft.Extensions.Logging;
 using Reporter.BL.Services.Departmens;
 using Reporter.BL.Services.Faculties;
 using Reporter.BL.Services.Reports;
-using Reporter.Models;
 using Reporter.UI.Models;
 
 namespace Reporter.Controllers
@@ -40,12 +39,6 @@ namespace Reporter.Controllers
         public IActionResult Privacy()
         {
             return View();
-        }
-
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-        }
+        }        
     }
 }

@@ -12,6 +12,7 @@ using Reporter.BL.Services.Departmens;
 using Reporter.BL.Services.Faculties;
 using Reporter.BL.Services.Persons;
 using Reporter.BL.Services.Reports;
+using Reporter.BL.Mapper;
 using Reporter.DL;
 
 namespace Reporter
