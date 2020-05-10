@@ -2,13 +2,13 @@
 using Reporter.Common.DTOs;
 using Reporter.DL;
 using Reporter.DL.Entities;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
-namespace Reporter.BL.Services.Faculties {
-    public class FacultieService {
+namespace Reporter.BL.Services.Faculties
+{
+    public class FacultieService: IFacultiesService 
+    {
         private IMapper _mapper;
         private ReporterDBContext _dbContext;
 

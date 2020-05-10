@@ -1,13 +1,21 @@
+// <copyright file="Startup.cs" company="PlaceholderCompany">
+// Copyright (c) PlaceholderCompany. All rights reserved.
+// </copyright>
+
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Reporter.BL.Services.Comments;
+using Reporter.BL.Services.Departmens;
+using Reporter.BL.Services.Faculties;
+using Reporter.BL.Services.Persons;
+using Reporter.BL.Services.Reports;
 using Reporter.DL;
 
 namespace Reporter
-{    
-
+{
     public class Startup
     {
         public Startup(IConfiguration configuration)
@@ -23,6 +31,11 @@ namespace Reporter
             services.AddControllersWithViews();
 
             services.AddDbContext<ReporterDBContext>();
+            services.AddScoped<IReportService, ReportService>();
+            services.AddScoped<IPersonService, PersonService>();
+            services.AddScoped<IFacultiesService, FacultieService>();
+            services.AddScoped<IDepartmentService, DepartmentService>();
+            services.AddScoped<ICommentService, CommentService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

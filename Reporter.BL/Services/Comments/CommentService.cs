@@ -5,10 +5,10 @@ using Reporter.DL.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace Reporter.BL.Services.Comments {
-    public class CommentService {
+    public class CommentService: ICommentService 
+    {
         private IMapper _mapper;
         private ReporterDBContext _dbContext;
 

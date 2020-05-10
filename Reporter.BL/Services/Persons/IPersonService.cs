@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Text;
 
 namespace Reporter.BL.Services.Persons {
-    interface IPersonService {
+    public interface IPersonService {
         
         /// <summary>
         ///     Check if person register
