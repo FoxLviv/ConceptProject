@@ -1,5 +1,20 @@
-﻿@{
+﻿@model ReportsListViewModel;
+@{
     ViewData["Title"] = "Home Page";
+}
+
+<h1>@Model.CurrentFacultie</h1>
+<h2>@Model.CurrentDepartment</h2>
+@foreach(var report in Model.Reports)
+{
+    <div>
+        <h3>
+            @report.ID
+        </h3>
+        <text>
+            @report.Report
+        </text>
+    </div>
 }
 
 <div class="text-center">
