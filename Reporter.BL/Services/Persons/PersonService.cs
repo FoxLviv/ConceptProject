@@ -33,7 +33,7 @@ namespace Reporter.BL.Services.Persons {
             personeToCreate.Id = Guid.NewGuid();
             personeToCreate.PasswordSalt = Encoding.ASCII.GetBytes(_randomGenerator.RandomString(5,false));
             personeToCreate.PasswordHash = Encoding.ASCII.GetBytes(person.Password);
-            
+
             _dbContext.Persons.Add(personeToCreate);
             _dbContext.SaveChanges();
         }

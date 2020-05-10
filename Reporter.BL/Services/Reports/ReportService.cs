@@ -1,20 +1,29 @@
 ﻿using AutoMapper;
+using Microsoft.EntityFrameworkCore;
 using Reporter.Common.DTOs;
 using Reporter.DL;
 using Reporter.DL.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace Reporter.BL.Services.Reports {
-    public class ReportService: IReportService {
+    public class ReportService : IReportService
+    {
         private IMapper _mapper;
         private ReporterDBContext _dbContext;
 
         public ReportService(IMapper mapper, ReporterDBContext dbContext) {
             this._mapper = mapper;
             this._dbContext = dbContext;
+        }
+
+        public IEnumerable<ReportDTO> GetAllReports()
+        {
+            IEnumerable<ReportEntity> reports = _dbContext.Reports
+                .AsNoTracking();
+            var reportDTOs = _mapper.Map<List<ReportDTO>>(reports);
+            return reportDTOs;
         }
 
         public void Create(ReportDTO report) {

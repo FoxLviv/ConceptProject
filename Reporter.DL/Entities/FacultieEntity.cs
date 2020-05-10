@@ -7,6 +7,6 @@ namespace Reporter.DL.Entities
     {
         public string Name { get; set; }
 
-        public List<PersonEntity> Person { get; set; }
+        public List<PersonEntity> Persons { get; set; }
     }
 }
