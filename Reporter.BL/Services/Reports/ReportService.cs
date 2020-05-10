@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 
 namespace Reporter.BL.Services.Reports {
-    public class ReportService {
+    public class ReportService: IReportService {
         private IMapper _mapper;
         private ReporterDBContext _dbContext;
 

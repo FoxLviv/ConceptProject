@@ -2,3 +2,9 @@
 
 # SA1600: Elements should be documented
 dotnet_diagnostic.SA1600.severity = none
+
+# SA1200: Using directives should be placed correctly
+dotnet_diagnostic.SA1200.severity = none
+
+# SA1208: System using directives should be placed before other using directives
+dotnet_diagnostic.SA1208.severity = none
