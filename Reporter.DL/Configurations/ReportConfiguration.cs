@@ -19,6 +19,10 @@ namespace Reporter.DL.Configurations
                 .HasForeignKey(e => e.AuthorId)
                 .IsRequired();
 
+            builder.Property(e => e.Title)
+                .HasMaxLength(250)
+                .IsRequired();
+
             builder.Property(e => e.CreatedAt)
                 .IsRequired();
 

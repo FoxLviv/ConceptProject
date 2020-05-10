@@ -35,7 +35,7 @@ namespace Reporter.DL.Configurations
                 .IsRequired();
 
             builder.HasOne(e => e.Facultie)
-                .WithMany(e => e.Person)
+                .WithMany(e => e.Persons)
                 .HasForeignKey(e => e.FacultieId)
                 .IsRequired();
 

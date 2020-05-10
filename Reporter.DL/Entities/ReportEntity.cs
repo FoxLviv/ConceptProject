@@ -12,6 +12,8 @@ namespace Reporter.DL.Entities
 
         public DateTimeOffset CreatedAt { get; set; }
 
+        public string Title { get; set; }
+
         public string Report { get; set; }
 
         public List<CommentEntity> Comments { get; set; }

@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Reporter.DL.Configurations;
 using Reporter.DL.Entities;
+using Reporter.DL.Migrations;
 
 namespace Reporter.DL
 {
@@ -47,6 +48,8 @@ namespace Reporter.DL
             modelBuilder.ApplyConfiguration(new PersonRoleConfiguration());
 
             modelBuilder.ApplyConfiguration(new RoleConfiguration());
+
+            modelBuilder.Seed();
         }
     }
 }
