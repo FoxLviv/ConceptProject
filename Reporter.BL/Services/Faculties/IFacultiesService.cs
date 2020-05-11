@@ -5,12 +5,12 @@ namespace Reporter.BL.Services.Faculties
 {
     public interface IFacultiesService
     {
-        public void Create(FacultieDTO facultie);
+        void Create(FacultieDTO facultie);
 
-        public void Update(FacultieDTO facultie);
+        void Update(FacultieDTO facultie);
 
-        public void Delete(int id);
+        void Delete(int id);
 
-        public IEnumerable<PersonDTO> GetListPersones(int facultieId);        
+        IEnumerable<PersonDTO> GetListPersones(int facultieId);
     }
 }

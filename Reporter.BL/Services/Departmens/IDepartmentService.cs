@@ -9,12 +9,12 @@ namespace Reporter.BL.Services.Departmens
 {
     public interface IDepartmentService
     {
-        public void Create(DepatrmentDTO depatrment);
+        void Create(DepatrmentDTO depatrment);
 
-        public void Update(DepatrmentDTO depatrment);
+        void Update(DepatrmentDTO depatrment);
 
-        public void Delete(int id);
+        void Delete(int id);
 
-        public IEnumerable<PersonDTO> GetListPersones(int departmentID);
+        IEnumerable<PersonDTO> GetListPersones(int departmentID);
     }
 }

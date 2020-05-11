@@ -6,17 +6,17 @@ namespace Reporter.BL.Services.Comments
 {
     public interface ICommentService
     {
-        public void Create(CommentDTO comment);
+        void Create(CommentDTO comment);
 
-        public CommentDTO GetById(int id);        
+        CommentDTO GetById(int id);
 
-        public IEnumerable<CommentDTO> GetAllForReport(int reportId);       
+        IEnumerable<CommentDTO> GetAllForReport(int reportId);
 
-        public IEnumerable<CommentDTO> GetAllForAuthor(Guid authorID);        
+        IEnumerable<CommentDTO> GetAllForAuthor(Guid authorID);
 
-        public void Update(CommentDTO comment);        
+        void Update(CommentDTO comment);
 
-        public void Delete(int id);
+        void Delete(int id);
 
     }
 }

@@ -42,6 +42,7 @@ namespace Reporter.BL.Mapper
             this.CreateMap<ReportEntity, ReportDTO>()
                 .ForMember(dest => dest.ID, opts => opts.MapFrom(src => src.Id))
                 .ForMember(dest => dest.AuthorUID, opts => opts.MapFrom(src => src.AuthorId))
+                .ForMember(dest => dest.Title, opts => opts.MapFrom(src => src.Title))
                 .ForMember(dest => dest.Report, opts => opts.MapFrom(src => src.Report));
         }
     }

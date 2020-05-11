@@ -6,16 +6,16 @@ namespace Reporter.BL.Services.Reports
 {
     public interface IReportService
     {
-        public IEnumerable<ReportDTO> GetAllReports();
+        IEnumerable<ReportDTO> GetAllReports();
 
-        public void Create(ReportDTO report);
+        void Create(ReportDTO report);
 
-        public ReportDTO GetById(int id);
+        ReportDTO GetById(int id);
 
-        public IEnumerable<ReportDTO> GetAllForAuthor(Guid autorId);
+        IEnumerable<ReportDTO> GetAllForAuthor(Guid autorId);
 
-        public void Update(ReportDTO report);
+        void Update(ReportDTO report);
 
-        public void Delete(Guid id);
+        void Delete(Guid id);
     }
 }
