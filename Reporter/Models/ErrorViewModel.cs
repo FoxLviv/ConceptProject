@@ -1,6 +1,6 @@
 using System;
 
-namespace Reporter.Models
+namespace Reporter.UI.Models
 {
     public class ErrorViewModel
     {
