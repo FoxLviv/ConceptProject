@@ -2,17 +2,14 @@
 using Reporter.DL.Configurations;
 using Reporter.DL.Entities;
 using Reporter.DL.Migrations;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 namespace Reporter.DL
 {
-    public class ReporterDBContext : DbContext
+    public class ReporterDBContext : IdentityDbContext<PersonEntity>
     {
         public ReporterDBContext(DbContextOptions<ReporterDBContext> options)
             : base(options) { }
-
-        public DbSet<RoleEntity> Roles { get; set; }
-
-        public DbSet<PersonRoleEntity> PersonRoles { get; set; }
 
         public DbSet<PersonEntity> Persons { get; set; }
 
@@ -44,10 +41,6 @@ namespace Reporter.DL
             modelBuilder.ApplyConfiguration(new ReportConfiguration());
 
             modelBuilder.ApplyConfiguration(new PersonConfiguration());
-
-            modelBuilder.ApplyConfiguration(new PersonRoleConfiguration());
-
-            modelBuilder.ApplyConfiguration(new RoleConfiguration());
 
             modelBuilder.Seed();
         }

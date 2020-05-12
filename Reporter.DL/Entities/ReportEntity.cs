@@ -6,7 +6,7 @@ namespace Reporter.DL.Entities
 {
     public class ReportEntity : BaseEntity
     {
-        public Guid AuthorId { get; set; }
+        public string AuthorId { get; set; }
 
         public PersonEntity Author { get; set; }
 

@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Reporter.DL;
 
 namespace Reporter.DL.Migrations
 {
     [DbContext(typeof(ReporterDBContext))]
-    partial class ReporterDBContextModelSnapshot : ModelSnapshot
+    [Migration("20200512212810_initial")]
+    partial class initial
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -179,16 +181,6 @@ namespace Reporter.DL.Migrations
                     b.HasIndex("ReportId");
 
                     b.ToTable("Comments");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            AuthorId = "30FB2DD3-EA0E-4F05-B0DB-EF6341A593F0",
-                            Comment = "Cool work dude)",
-                            CreateAt = new DateTimeOffset(new DateTime(2020, 10, 5, 11, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 3, 0, 0, 0)),
-                            ReportId = 1
-                        });
                 });
 
             modelBuilder.Entity("Reporter.DL.Entities.DepartmentEntity", b =>
@@ -205,13 +197,6 @@ namespace Reporter.DL.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Departments");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Name = "Programming"
-                        });
                 });
 
             modelBuilder.Entity("Reporter.DL.Entities.FacultieEntity", b =>
@@ -228,13 +213,6 @@ namespace Reporter.DL.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Faculties");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Name = "AMI"
-                        });
                 });
 
             modelBuilder.Entity("Reporter.DL.Entities.PersonEntity", b =>
@@ -323,25 +301,6 @@ namespace Reporter.DL.Migrations
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
                     b.ToTable("AspNetUsers");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = "30FB2DD3-EA0E-4F05-B0DB-EF6341A593F0",
-                            AccessFailedCount = 0,
-                            ConcurrencyStamp = "83f7e2f1-f1be-40b8-b646-ca878eeeded2",
-                            DepartmentId = 1,
-                            Email = "burco.ab@gmail.com",
-                            EmailConfirmed = false,
-                            FacultieId = 1,
-                            FirstName = "Andriy",
-                            LastName = "Burtso",
-                            LockoutEnabled = false,
-                            PasswordHash = "Aa_1234",
-                            PhoneNumberConfirmed = false,
-                            SecurityStamp = "40b55125-74bd-48ef-8611-c74b6542fc2a",
-                            TwoFactorEnabled = false
-                        });
                 });
 
             modelBuilder.Entity("Reporter.DL.Entities.ReportEntity", b =>
@@ -373,16 +332,6 @@ namespace Reporter.DL.Migrations
                     b.HasIndex("AuthorId");
 
                     b.ToTable("Reports");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            AuthorId = "30FB2DD3-EA0E-4F05-B0DB-EF6341A593F0",
-                            CreatedAt = new DateTimeOffset(new DateTime(2020, 9, 5, 11, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 3, 0, 0, 0)),
-                            Report = "On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms of pleasure of the moment, so blinded by desire, that they cannot foresee the pain and trouble that are bound to ensue; and equal blame belongs to those who fail in their duty through weakness of will, which is the same as saying through shrinking from toil and pain. These cases are perfectly simple and easy to distinguish. In a free hour, when our power of choice is untrammelled and when nothing prevents our being able to do what we like best, every pleasure is to be welcomed and every pain avoided. But in certain circumstances and owing to the claims of duty or the obligations of business it will frequently occur that pleasures have to be repudiated and annoyances accepted. The wise man therefore always holds in these matters to this principle of selection: he rejects pleasures to secure other greater pleasures, or else he endures pains to avoid worse pains.",
-                            Title = "First title"
-                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

@@ -35,7 +35,7 @@ namespace Reporter.BL.Mapper
                 .ForMember(dest => dest.FirstName, opts => opts.MapFrom(src => src.FirstName))
                 .ForMember(dest => dest.LastName, opts => opts.MapFrom(src => src.LastName))
                 .ForMember(dest => dest.Email, opts => opts.MapFrom(src => src.Email))
-                .ForMember(dest => dest.Password, opts => opts.MapFrom(src => Encoding.ASCII.GetString(src.PasswordHash) + Encoding.ASCII.GetString(src.PasswordSalt)))
+                .ForMember(dest => dest.Password, opts => opts.MapFrom(src => src.PasswordHash))
                 .ForMember(dest => dest.FacultieId, opts => opts.MapFrom(src => src.FacultieId))
                 .ForMember(dest => dest.DepartmentId, opts => opts.MapFrom(src => src.DepartmentId));
 
