@@ -1,22 +1,23 @@
 ﻿using Reporter.Common.DTOs;
 using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace Reporter.BL.Services.Comments
 {
     public interface ICommentService
     {
-        void Create(CommentDTO comment);
+        Task Create(CommentDTO comment);
 
-        CommentDTO GetById(int id);
+        Task<CommentDTO> GetById(int id);
 
         IEnumerable<CommentDTO> GetAllForReport(int reportId);
 
         IEnumerable<CommentDTO> GetAllForAuthor(Guid authorID);
 
-        void Update(CommentDTO comment);
+        Task Update(CommentDTO comment);
 
-        void Delete(int id);
+        Task Delete(int id);
 
     }
 }

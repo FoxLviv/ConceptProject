@@ -6,6 +6,7 @@ using Reporter.DL.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace Reporter.BL.Services.Reports {
     public class ReportService : IReportService
@@ -18,21 +19,20 @@ namespace Reporter.BL.Services.Reports {
             this._dbContext = dbContext;
         }
 
-        public IEnumerable<ReportDTO> GetAllReports()
-        {
+        public IEnumerable<ReportDTO> GetAllReports() {
             IEnumerable<ReportEntity> reports = _dbContext.Reports
                 .AsNoTracking();
             var reportDTOs = _mapper.Map<List<ReportDTO>>(reports);
             return reportDTOs;
         }
 
-        public void Create(ReportDTO report) {
-            _dbContext.Add(report);
-            _dbContext.SaveChanges();
+        public async Task Create(ReportDTO report) {
+            await _dbContext.AddAsync(report);
+            await _dbContext.SaveChangesAsync();
         }
 
-        public ReportDTO GetById(int id) {
-            var report = _dbContext.Reports.Find(id);
+        public async Task<ReportDTO> GetById(int id) {
+            var report = await _dbContext.Reports.FindAsync(id);
 
             return _mapper.Map<ReportDTO>(report);
         }
@@ -41,18 +41,18 @@ namespace Reporter.BL.Services.Reports {
             return _dbContext.Reports.Where(report => report.AuthorId == autorId).Select(report => _mapper.Map<ReportDTO>(report));
         }
 
-        public void Update(ReportDTO report) {
+        public async Task Update(ReportDTO report) {
             var reportEntity = _mapper.Map<ReportEntity>(report);
             _dbContext.Reports.Update(reportEntity);
-            _dbContext.SaveChanges();
+            await _dbContext.SaveChangesAsync();
         }
 
-        public void Delete(Guid id) {
-            ReportEntity report = _dbContext.Reports.Find(id);
+        public async Task Delete(Guid id) {
+            ReportEntity report = await _dbContext.Reports.FindAsync(id);
             if (report != null)
             {
                 _dbContext.Reports.Remove(report);
-                _dbContext.SaveChanges();
+                await _dbContext.SaveChangesAsync();
             }
         }
     }

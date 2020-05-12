@@ -1,15 +1,16 @@
 ﻿using Reporter.Common.DTOs;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace Reporter.BL.Services.Faculties
 {
     public interface IFacultiesService
     {
-        void Create(FacultieDTO facultie);
+        Task Create(FacultieDTO facultie);
 
-        void Update(FacultieDTO facultie);
+        Task Update(FacultieDTO facultie);
 
-        void Delete(int id);
+        Task Delete(int id);
 
         IEnumerable<PersonDTO> GetListPersones(int facultieId);
     }

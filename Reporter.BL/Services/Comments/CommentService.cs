@@ -5,9 +5,10 @@ using Reporter.DL.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace Reporter.BL.Services.Comments {
-    public class CommentService: ICommentService 
+    public class CommentService: ICommentService
     {
         private IMapper _mapper;
         private ReporterDBContext _dbContext;
@@ -17,13 +18,13 @@ namespace Reporter.BL.Services.Comments {
             this._dbContext = dbContext;
         }
 
-        public void Create(CommentDTO comment) {
-            _dbContext.Comments.Add(_mapper.Map<CommentEntity>(comment));
-            _dbContext.SaveChanges();
+        public async Task Create(CommentDTO comment) {
+            await _dbContext.Comments.AddAsync(_mapper.Map<CommentEntity>(comment));
+            _dbContext.SaveChangesAsync();
         }
 
-        public CommentDTO GetById(int id) {
-            var comment = _dbContext.Comments.Find(id);
+        public async Task<CommentDTO> GetById(int id) {
+            var comment = await _dbContext.Comments.FindAsync(id);
 
             return _mapper.Map<CommentDTO>(comment);
         }
@@ -36,18 +37,18 @@ namespace Reporter.BL.Services.Comments {
             return _dbContext.Comments.Where(comment => comment.AuthorId == authorID).Select(comment => _mapper.Map<CommentDTO>(comment));
         }
 
-        public void Update(CommentDTO comment) {
+        public async Task Update(CommentDTO comment) {
             var commentEntity = _mapper.Map<CommentEntity>(comment);
             _dbContext.Comments.Update(commentEntity);
-            _dbContext.SaveChanges();
+            await _dbContext.SaveChangesAsync();
         }
 
-        public void Delete(int id) {
-            CommentEntity comment = _dbContext.Comments.Find(id);
+        public async Task Delete(int id) {
+            CommentEntity comment = await _dbContext.Comments.FindAsync(id);
             if (comment != null)
             {
                 _dbContext.Comments.Remove(comment);
-                _dbContext.SaveChanges();
+                await _dbContext.SaveChangesAsync();
             }
         }
     }

@@ -4,16 +4,19 @@
 
 using Reporter.Common.DTOs;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace Reporter.BL.Services.Departmens
 {
     public interface IDepartmentService
     {
-        void Create(DepatrmentDTO depatrment);
+        Task Create(DepatrmentDTO depatrment);
 
-        void Update(DepatrmentDTO depatrment);
+        Task Update(DepatrmentDTO depatrment);
 
-        void Delete(int id);
+        Task Add(DepatrmentDTO depatrment);
+
+        Task Delete(int id);
 
         IEnumerable<PersonDTO> GetListPersones(int departmentID);
     }
