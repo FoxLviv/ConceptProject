@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace Reporter.BL.Services.Persons {
     public class PersonService : IPersonService {
@@ -27,35 +28,36 @@ namespace Reporter.BL.Services.Persons {
             return (existingPassword == password) ? true : false;
         }
 
-        public void Create(PersonDTO person) {
+        public async Task Create(PersonDTO person) {
             var personeToCreate = _mapper.Map<PersonEntity>(person);
 
             personeToCreate.Id = Guid.NewGuid();
             personeToCreate.PasswordSalt = Encoding.ASCII.GetBytes(_randomGenerator.RandomString(5,false));
             personeToCreate.PasswordHash = Encoding.ASCII.GetBytes(person.Password);
 
-            _dbContext.Persons.Add(personeToCreate);
-            _dbContext.SaveChanges();
+            await _dbContext.Persons.AddAsync(personeToCreate);
+            await _dbContext.SaveChangesAsync();
         }
 
-        public PersonDTO GetByUid(Guid id) {
-            var person = _dbContext.Persons.Find(id);
+        public async Task<PersonDTO> GetByUid(Guid id) {
+            var person = await _dbContext.Persons.FindAsync(id);
             var results = _mapper.Map<PersonDTO>(person);
-            
+
             return results;
         }
 
-        public void Update(PersonDTO person) {
+        public async Task Update(PersonDTO person) {
             var personeEntity = _mapper.Map<PersonEntity>(person);
             _dbContext.Persons.Update(personeEntity);
+            await _dbContext.SaveChangesAsync();
         }
 
-        public void Delete(Guid id) {
-            PersonEntity person = _dbContext.Persons.Find(id);
+        public async Task Delete(Guid id) {
+            PersonEntity person = await _dbContext.Persons.FindAsync(id);
             if (person != null)
             {
                 _dbContext.Persons.Remove(person);
-                _dbContext.SaveChanges();
+                await _dbContext.SaveChangesAsync();
             }
         }
     }

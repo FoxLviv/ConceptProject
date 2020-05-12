@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace Reporter.BL.Services.Persons {
     public interface IPersonService {
@@ -17,13 +18,16 @@ namespace Reporter.BL.Services.Persons {
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        PersonDTO GetByUid(Guid id);
+        Task<PersonDTO> GetByUid(Guid id);
 
         /// <summary>
         ///     Delete Persone by id
         /// </summary>
         /// <param name="id"></param>
-        void Delete(Guid id);
+        Task Delete(Guid id);
 
+        Task Create(PersonDTO person);
+
+        Task Update(PersonDTO person);
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System;
 using Reporter.Common.DTOs;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace Reporter.BL.Services.Reports
 {
@@ -8,14 +9,14 @@ namespace Reporter.BL.Services.Reports
     {
         IEnumerable<ReportDTO> GetAllReports();
 
-        void Create(ReportDTO report);
+        Task Create(ReportDTO report);
 
-        ReportDTO GetById(int id);
+        Task<ReportDTO> GetById(int id);
 
         IEnumerable<ReportDTO> GetAllForAuthor(Guid autorId);
 
-        void Update(ReportDTO report);
+        Task Update(ReportDTO report);
 
-        void Delete(Guid id);
+        Task Delete(Guid id);
     }
 }

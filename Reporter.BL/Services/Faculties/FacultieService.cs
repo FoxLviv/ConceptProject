@@ -4,6 +4,7 @@ using Reporter.DL;
 using Reporter.DL.Entities;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace Reporter.BL.Services.Faculties
 {
@@ -17,21 +18,21 @@ namespace Reporter.BL.Services.Faculties
             this._dbContext = dbContext;
         }
 
-        public void Create(FacultieDTO facultie) {
-            _dbContext.Faculties.Add(_mapper.Map<FacultieEntity>(facultie));
-            _dbContext.SaveChanges();
+        public async Task Create(FacultieDTO facultie) {
+            await _dbContext.Faculties.AddAsync(_mapper.Map<FacultieEntity>(facultie));
+            await _dbContext.SaveChangesAsync();
         }
 
-        public void Update(FacultieDTO facultie) {
-            _dbContext.Faculties.Add(_mapper.Map<FacultieEntity>(facultie));
-            _dbContext.SaveChanges();
+        public async Task Update(FacultieDTO facultie) {
+            await _dbContext.Faculties.AddAsync(_mapper.Map<FacultieEntity>(facultie));
+            await _dbContext.SaveChangesAsync();
         }
 
-        public void Delete(int id) {
-            FacultieEntity facultie = _dbContext.Faculties.Find(id);
+        public async Task Delete(int id) {
+            FacultieEntity facultie = await _dbContext.Faculties.FindAsync(id);
             if (facultie != null) {
                 _dbContext.Faculties.Remove(facultie);
-                _dbContext.SaveChanges();
+                await _dbContext.SaveChangesAsync();
             }
         }
 

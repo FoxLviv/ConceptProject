@@ -4,6 +4,7 @@ using Reporter.DL;
 using Reporter.DL.Entities;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace Reporter.BL.Services.Departmens
 {
@@ -17,21 +18,26 @@ namespace Reporter.BL.Services.Departmens
             this._dbContext = dbContext;
         }
 
-        public void Create(DepatrmentDTO depatrment) {
-            _dbContext.Departments.Add(_mapper.Map<DepartmentEntity>(depatrment));
-            _dbContext.SaveChanges();
+        public async Task Create(DepatrmentDTO depatrment) {
+            _dbContext.Departments.AddAsync(_mapper.Map<DepartmentEntity>(depatrment));
+            await _dbContext.SaveChangesAsync();
         }
 
-        public void Update(DepatrmentDTO depatrment) {
-            _dbContext.Departments.Add(_mapper.Map<DepartmentEntity>(depatrment));
-            _dbContext.SaveChanges();
+        public async Task Update(DepatrmentDTO depatrment) {
+            _dbContext.Departments.Update(_mapper.Map<DepartmentEntity>(depatrment));
+            await _dbContext.SaveChangesAsync();
         }
 
-        public void Delete(int id) {
-            DepartmentEntity depatrment = _dbContext.Departments.Find(id);
+        public async Task Add(DepatrmentDTO depatrment) {
+            _dbContext.Departments.AddAsync(_mapper.Map<DepartmentEntity>(depatrment));
+            await _dbContext.SaveChangesAsync();
+        }
+
+        public async Task Delete(int id) {
+            DepartmentEntity depatrment = await _dbContext.Departments.FindAsync(id);
             if (depatrment != null) {
                 _dbContext.Departments.Remove(depatrment);
-                _dbContext.SaveChanges();
+                await _dbContext.SaveChangesAsync();
             }
         }
 
