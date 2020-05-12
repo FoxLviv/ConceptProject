@@ -4,7 +4,8 @@ using System.Text;
 
 namespace Reporter.Common.DTOs {
     public class PersonDTO {
-        public Guid Id { get; set; }
+
+        public string Id { get; set; }
 
         public string FirstName { get; set; }
 
