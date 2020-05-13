@@ -22,12 +22,27 @@ namespace Reporter.BL.Mapper
                 .ForMember(dest => dest.CreateAt, opts => opts.MapFrom(src => src.CreateAt))
                 .ForMember(dest => dest.Comment, opts => opts.MapFrom(src => src.Comment));
 
+            this.CreateMap<CommentDTO, CommentEntity>()
+                .ForMember(dest => dest.Id, opts => opts.MapFrom(src => src.ID))
+                .ForMember(dest => dest.AuthorId, opts => opts.MapFrom(src => src.AuthorUid))
+                .ForMember(dest => dest.ReportId, opts => opts.MapFrom(src => src.ReportID))
+                .ForMember(dest => dest.CreateAt, opts => opts.MapFrom(src => src.CreateAt))
+                .ForMember(dest => dest.Comment, opts => opts.MapFrom(src => src.Comment));
+
             this.CreateMap<DepartmentEntity, DepatrmentDTO>()
                 .ForMember(dest => dest.ID, opts => opts.MapFrom(src => src.Id))
                 .ForMember(dest => dest.Name, opts => opts.MapFrom(src => src.Name));
 
+            this.CreateMap<DepatrmentDTO, DepartmentEntity>()
+                .ForMember(dest => dest.Id, opts => opts.MapFrom(src => src.ID))
+                .ForMember(dest => dest.Name, opts => opts.MapFrom(src => src.Name));
+
             this.CreateMap<FacultieEntity, FacultieDTO>()
                 .ForMember(dest => dest.ID, opts => opts.MapFrom(src => src.Id))
+                .ForMember(dest => dest.Name, opts => opts.MapFrom(src => src.Name));
+
+            this.CreateMap<FacultieDTO, FacultieEntity>()
+                .ForMember(dest => dest.Id, opts => opts.MapFrom(src => src.ID))
                 .ForMember(dest => dest.Name, opts => opts.MapFrom(src => src.Name));
 
             this.CreateMap<PersonEntity, PersonDTO>()
@@ -53,6 +68,14 @@ namespace Reporter.BL.Mapper
                 .ForMember(dest => dest.AuthorUID, opts => opts.MapFrom(src => src.AuthorId))
                 .ForMember(dest => dest.Title, opts => opts.MapFrom(src => src.Title))
                 .ForMember(dest => dest.Report, opts => opts.MapFrom(src => src.Report));
+
+            this.CreateMap<ReportDTO, ReportEntity>()
+                .ForMember(dest => dest.Id, opts => opts.MapFrom(src => src.ID))
+                .ForMember(dest => dest.AuthorId, opts => opts.MapFrom(src => src.AuthorUID))
+                .ForMember(dest => dest.Title, opts => opts.MapFrom(src => src.Title))
+                .ForMember(dest => dest.Report, opts => opts.MapFrom(src => src.Report));
+
+
         }
     }
 }

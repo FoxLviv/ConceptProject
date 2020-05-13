@@ -16,6 +16,7 @@ using Reporter.BL.Mapper;
 using Reporter.DL;
 using Reporter.DL.Entities;
 using Microsoft.AspNetCore.Identity;
+using Reporter.UI.Mapper;
 
 namespace Reporter
 {
