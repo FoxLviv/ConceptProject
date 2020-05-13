@@ -3,6 +3,7 @@
 // </copyright>
 
 using Reporter.Common.DTOs;
+using Reporter.Common.DTOs.Person;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 

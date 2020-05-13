@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Reporter.Common.DTOs;
+using Reporter.Common.DTOs.Person;
 using Reporter.DL;
 using Reporter.DL.Entities;
 using System.Collections.Generic;

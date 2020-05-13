@@ -5,6 +5,7 @@ using Reporter.DL.Entities;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Reporter.Common.DTOs.Person;
 
 namespace Reporter.BL.Services.Faculties
 {

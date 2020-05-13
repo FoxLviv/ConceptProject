@@ -37,7 +37,7 @@ namespace Reporter.BL.Services.Reports {
             return _mapper.Map<ReportDTO>(report);
         }
 
-        public IEnumerable<ReportDTO> GetAllForAuthor(Guid autorId) {
+        public IEnumerable<ReportDTO> GetAllForAuthor(string autorId) {
             return _dbContext.Reports.Where(report => report.AuthorId == autorId).Select(report => _mapper.Map<ReportDTO>(report));
         }
 

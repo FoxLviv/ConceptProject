@@ -13,7 +13,7 @@ namespace Reporter.BL.Services.Comments
 
         IEnumerable<CommentDTO> GetAllForReport(int reportId);
 
-        IEnumerable<CommentDTO> GetAllForAuthor(Guid authorID);
+        IEnumerable<CommentDTO> GetAllForAuthor(string authorID);
 
         Task Update(CommentDTO comment);
 
