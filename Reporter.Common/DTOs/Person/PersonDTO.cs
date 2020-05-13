@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Reporter.Common.DTOs {
+﻿namespace Reporter.Common.DTOs.Person
+{
     public class PersonDTO {
-        public Guid Id { get; set; }
+
+        public string Id { get; set; }
 
         public string FirstName { get; set; }
 

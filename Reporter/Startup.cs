@@ -14,6 +14,8 @@ using Reporter.BL.Services.Persons;
 using Reporter.BL.Services.Reports;
 using Reporter.BL.Mapper;
 using Reporter.DL;
+using Reporter.DL.Entities;
+using Microsoft.AspNetCore.Identity;
 
 namespace Reporter
 {
@@ -32,6 +34,8 @@ namespace Reporter
             services.AddControllersWithViews();
 
             services.AddDbContext<ReporterDBContext>();
+            services.AddIdentity<PersonEntity, IdentityRole>().AddEntityFrameworkStores<ReporterDBContext>().AddDefaultTokenProviders();
+
             services.AddScoped<IReportService, ReportService>();
             services.AddScoped<IPersonService, PersonService>();
             services.AddScoped<IFacultiesService, FacultieService>();
@@ -60,7 +64,7 @@ namespace Reporter
             app.UseStaticFiles();
 
             app.UseRouting();
-
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>

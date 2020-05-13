@@ -13,7 +13,7 @@ namespace Reporter.BL.Services.Reports
 
         Task<ReportDTO> GetById(int id);
 
-        IEnumerable<ReportDTO> GetAllForAuthor(Guid autorId);
+        IEnumerable<ReportDTO> GetAllForAuthor(string autorId);
 
         Task Update(ReportDTO report);
 

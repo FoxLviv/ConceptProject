@@ -1,7 +1,7 @@
-﻿using System.Text;
-using AutoMapper;
+﻿using AutoMapper;
 using Reporter.Common.DTOs;
 using Reporter.DL.Entities;
+using Reporter.Common.DTOs.Person;
 
 namespace Reporter.BL.Mapper
 {
@@ -35,7 +35,16 @@ namespace Reporter.BL.Mapper
                 .ForMember(dest => dest.FirstName, opts => opts.MapFrom(src => src.FirstName))
                 .ForMember(dest => dest.LastName, opts => opts.MapFrom(src => src.LastName))
                 .ForMember(dest => dest.Email, opts => opts.MapFrom(src => src.Email))
-                .ForMember(dest => dest.Password, opts => opts.MapFrom(src => Encoding.ASCII.GetString(src.PasswordHash) + Encoding.ASCII.GetString(src.PasswordSalt)))
+                .ForMember(dest => dest.Password, opts => opts.MapFrom(src => src.PasswordHash))
+                .ForMember(dest => dest.FacultieId, opts => opts.MapFrom(src => src.FacultieId))
+                .ForMember(dest => dest.DepartmentId, opts => opts.MapFrom(src => src.DepartmentId));
+
+            this.CreateMap<PersonDTO, PersonEntity>()
+                .ForMember(dest => dest.Id, opts => opts.MapFrom(src => src.Id))
+                .ForMember(dest => dest.FirstName, opts => opts.MapFrom(src => src.FirstName))
+                .ForMember(dest => dest.LastName, opts => opts.MapFrom(src => src.LastName))
+                .ForMember(dest => dest.Email, opts => opts.MapFrom(src => src.Email))
+                .ForMember(dest => dest.PasswordHash, opts => opts.MapFrom(src => src.Password))
                 .ForMember(dest => dest.FacultieId, opts => opts.MapFrom(src => src.FacultieId))
                 .ForMember(dest => dest.DepartmentId, opts => opts.MapFrom(src => src.DepartmentId));
 

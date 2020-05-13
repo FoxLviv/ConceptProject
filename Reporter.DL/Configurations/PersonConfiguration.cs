@@ -27,10 +27,6 @@ namespace Reporter.DL.Configurations
                 .HasMaxLength(500)
                 .IsRequired();
 
-            builder.Property(e => e.PasswordSalt)
-                .HasMaxLength(250)
-                .IsRequired();
-
             builder.Property(e => e.FacultieId)
                 .IsRequired();
 

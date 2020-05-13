@@ -2,7 +2,6 @@
 using Reporter.Common.DTOs;
 using Reporter.DL;
 using Reporter.DL.Entities;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -33,7 +32,7 @@ namespace Reporter.BL.Services.Comments {
             return _dbContext.Comments.Where(comment => comment.ReportId == reportId).Select(comment => _mapper.Map<CommentDTO>(comment));
         }
 
-        public IEnumerable<CommentDTO> GetAllForAuthor(Guid authorID) {
+        public IEnumerable<CommentDTO> GetAllForAuthor(string authorID) {
             return _dbContext.Comments.Where(comment => comment.AuthorId == authorID).Select(comment => _mapper.Map<CommentDTO>(comment));
         }
 
