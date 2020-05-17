@@ -4,14 +4,12 @@ using Reporter.Common.DTOs.Person;
 using Reporter.DL;
 using Reporter.DL.Entities;
 using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
 
-namespace Reporter.BL.Services.Persons {
+namespace Reporter.BL.Services.Persons
+{
     public class PersonService : IPersonService {
         private IMapper _mapper;
         private ReporterDBContext _dbContext;

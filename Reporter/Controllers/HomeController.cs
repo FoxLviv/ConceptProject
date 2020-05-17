@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Reporter.BL.Services.Departmens;
@@ -30,6 +31,7 @@ namespace Reporter.Controllers
             _logger = logger;
         }
 
+        [Authorize]
         public IActionResult Index()
         {
             ReportsListViewModel reportsListViewModel = new ReportsListViewModel();
@@ -52,6 +54,6 @@ namespace Reporter.Controllers
         public IActionResult Privacy()
         {
             return View();
-        }        
+        }
     }
 }

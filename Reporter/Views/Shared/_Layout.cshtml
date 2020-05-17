@@ -25,6 +25,10 @@
                         <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
                     </li>
                 </ul>
+                @if (User?.Identity?.IsAuthenticated ?? false)
+                {
+                    <a asp-controller="Account" asp-action="Logout" class="btn btn-danger">Logout</a>
+                }
             </div>
         </div>
     </nav>

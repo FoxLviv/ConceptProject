@@ -35,7 +35,15 @@ namespace Reporter
             services.AddControllersWithViews();
 
             services.AddDbContext<ReporterDBContext>();
-            services.AddIdentity<PersonEntity, IdentityRole>().AddEntityFrameworkStores<ReporterDBContext>().AddDefaultTokenProviders();
+            services.AddIdentity<PersonEntity, IdentityRole>(opts =>
+            {
+                opts.User.RequireUniqueEmail = true;
+                opts.Password.RequiredLength = 8;
+                opts.Password.RequireNonAlphanumeric = false;
+                opts.Password.RequireLowercase = true;
+                opts.Password.RequireDigit = true;
+                opts.Password.RequireUppercase = true;
+            }).AddEntityFrameworkStores<ReporterDBContext>().AddDefaultTokenProviders();
 
             services.AddScoped<IReportService, ReportService>();
             services.AddScoped<IPersonService, PersonService>();
