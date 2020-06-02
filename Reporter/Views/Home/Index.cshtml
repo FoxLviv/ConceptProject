@@ -11,21 +11,22 @@
     <div class="container row">
         @foreach (var report in Model.Reports)
         {
-            <div class="card mb-5 card-columns" style="width: 340px; margin:10px;">
-                <div class="card-body bg-light border-dark">
-                    <div class="card-title">
-                        <h5>
-                            <a>@report.Title</a>
-                            <div class="float-lg-right">
-                                <a class="btn-link float-right">
-                                    @Html.ActionLink("Download", "GetFile", new { reportModel = report })
-                                </a>
-                            </div>
-                        </h5>
-                    </div>
-                    <text class="card-text">@report.Report.Substring(0,500)...</text>
+        <div class="card mb-5 card-columns" style="width: 340px; margin:10px;">
+            <div class="card-body bg-light border-dark">
+                <div class="card-title">
+                    <h5>
+                        <a>@report.Title</a>
+                        <div class="float-lg-right">
+                            <a class="btn-link float-right">
+                                @Html.ActionLink("Download", "GetFile", new { reportModel = report })
+                            </a>
+                        </div>
+                    </h5>
                 </div>
+                <text class="card-text">@report.Report.Substring(0, 500)...</text>
             </div>
+            <a class="nav-link" asp-area="" asp-controller="Report" asp-action="Index" asp-route-reportId="@report.ID">View</a>
+        </div>
         }
     </div>
 </div>

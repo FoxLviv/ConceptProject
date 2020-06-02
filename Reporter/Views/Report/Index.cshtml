@@ -1,0 +1,20 @@
+﻿@model ReportViewModel;
+@{
+    ViewData["Title"] = "Report";
+}
+
+@using (Html.BeginForm("Index", "Report", FormMethod.Post))
+{
+
+    <h1>Title: @Html.TextAreaFor(a => a.Report.Title, new { @class = "form-control report-area", @style = "font-size: 40px", @rows = "1" })</h1>
+
+    <span>Enter Report:</span>
+    <div style="margin: 10px">
+        @Html.TextAreaFor(a => a.Report.Report, new { @class = "form-control", @rows = "20" })
+    </div>
+
+    <label>ID: @Html.TextBoxFor(a => a.Report.ID) </label>
+    <label>AutorUID: @Html.TextBoxFor(a => a.Report.AuthorUID)</label>
+
+    <input type="submit" value="Submit" />
+}

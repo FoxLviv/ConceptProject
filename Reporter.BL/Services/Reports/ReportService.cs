@@ -45,8 +45,12 @@ namespace Reporter.BL.Services.Reports {
         }
 
         public async Task Update(ReportDTO report) {
-            var reportEntity = _mapper.Map<ReportEntity>(report);
-            _dbContext.Reports.Update(reportEntity);
+            var exestingReport = _dbContext.Reports.Find(report.ID);
+
+            exestingReport.Title = report.Title;
+            exestingReport.Report = report.Report;
+
+            _dbContext.Reports.Update(exestingReport);
             await _dbContext.SaveChangesAsync();
         }
 

@@ -73,7 +73,7 @@ namespace Reporter.Controllers
             var byteArray = Encoding.ASCII.GetBytes(reportTest.Report);
             var stream = new MemoryStream(byteArray);
 
-            return File(stream, "text/plain", "your_file_name.txt");
+            return File(stream, "text/plain", $"{reportTest.Title}.txt");
         }
 
         public IActionResult Privacy()
