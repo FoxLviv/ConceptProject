@@ -20,5 +20,9 @@ namespace Reporter.BL.Services.Departmens
         Task Delete(int id);
 
         IEnumerable<PersonDTO> GetListPersones(int departmentID);
+
+        IEnumerable<DepatrmentDTO> GetAll();
+
+        DepatrmentDTO GetById(int id);
     }
 }

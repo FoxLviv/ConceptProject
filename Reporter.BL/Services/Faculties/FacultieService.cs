@@ -40,5 +40,13 @@ namespace Reporter.BL.Services.Faculties
         public IEnumerable<PersonDTO> GetListPersones(int facultieId) {
             return _dbContext.Persons.Where(person => person.FacultieId == facultieId).Select(person => _mapper.Map<PersonDTO>(person));
         }
+
+        public IEnumerable<FacultieDTO> GetAll() {
+            return _mapper.Map<IEnumerable<FacultieDTO>>(_dbContext.Faculties);
+        }
+
+        public FacultieDTO GetById(int id) {
+            return _mapper.Map<FacultieDTO>(_dbContext.Faculties.Find(id));
+        }
     }
 }

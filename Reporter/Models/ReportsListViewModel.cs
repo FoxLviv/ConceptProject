@@ -10,5 +10,9 @@ namespace Reporter.UI.Models
         public string CurrentDepartment { get; set; }
 
         public string CurrentFacultie { get; set; }
+
+        public int SelectedFaculties { get; set; }
+
+        public int SelectedDepatrments { get; set; }
     }
 }

@@ -3,31 +3,29 @@
     ViewData["Title"] = "Home Page";
 }
 
-
 <div>
-    <div class="container mb-3">
-        <h1 class="display-4">@Model.CurrentFacultie</h1>
-        <h3>@Model.CurrentDepartment</h3>
+    <div class="container mb-3 text-center">
+        <h1>Reports</h1>
     </div>
 
-    <div class="container">
+    <div class="container row">
         @foreach (var report in Model.Reports)
         {
-            <form class="card mb-3">
+            <div class="card mb-5 card-columns" style="width: 340px; margin:10px;">
                 <div class="card-body bg-light border-dark">
                     <div class="card-title">
                         <h5>
                             <a>@report.Title</a>
                             <div class="float-lg-right">
                                 <a class="btn-link float-right">
-                                    @Html.ActionLink("GetFile", "GetFile", new { reportModel = report })
+                                    @Html.ActionLink("Download", "GetFile", new { reportModel = report })
                                 </a>
                             </div>
                         </h5>
                     </div>
-                    <text class="card-text">@report.Report</text>
+                    <text class="card-text">@report.Report.Substring(0,500)...</text>
                 </div>
-            </form>
+            </div>
         }
     </div>
 </div>
