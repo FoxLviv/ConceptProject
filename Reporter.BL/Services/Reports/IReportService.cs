@@ -18,5 +18,7 @@ namespace Reporter.BL.Services.Reports
         Task Update(ReportDTO report);
 
         Task Delete(Guid id);
+
+        IEnumerable<ReportDTO> GetFiltered(int facultatyId, int departmenId);
     }
 }

@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.Extensions.Logging;
 using Reporter.BL.Services.Departmens;
 using Reporter.BL.Services.Faculties;
@@ -35,9 +36,33 @@ namespace Reporter.Controllers
         public IActionResult Index()
         {
             ReportsListViewModel reportsListViewModel = new ReportsListViewModel();
+
             reportsListViewModel.Reports = _reportService.GetAllReports();
             reportsListViewModel.CurrentFacultie = "AMI";
             reportsListViewModel.CurrentDepartment = "Programming";
+
+            var existingFaculties = _facultiesService.GetAll().ToList();
+            existingFaculties.Insert(0, new FacultieDTO { ID = 0, Name = "Select" });
+            var existingDepatrments = _departmentService.GetAll().ToList();
+            existingDepatrments.Insert(0, new DepatrmentDTO { ID = 0, Name = "Select" });
+
+            ViewBag.Faculties = new SelectList(existingFaculties, "ID", "Name");
+            ViewBag.Depatrments = new SelectList(existingDepatrments, "ID", "Name");
+
+            return View(reportsListViewModel);
+        }
+
+        [HttpPost]
+        public IActionResult GetFiltered(int SelectedFaculties, int SelectedDepatrments) {
+            var reports = _reportService.GetFiltered(SelectedFaculties, SelectedDepatrments);
+
+            ReportsListViewModel reportsListViewModel = new ReportsListViewModel();
+            reportsListViewModel.Reports = reports;
+            if (SelectedFaculties != 0)
+                reportsListViewModel.CurrentFacultie = _facultiesService.GetById(SelectedFaculties).Name;
+            if (SelectedDepatrments != 0)
+                reportsListViewModel.CurrentDepartment = _departmentService.GetById(SelectedDepatrments).Name;
+
             return View(reportsListViewModel);
         }
 

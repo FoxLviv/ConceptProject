@@ -14,5 +14,9 @@ namespace Reporter.BL.Services.Faculties
         Task Delete(int id);
 
         IEnumerable<PersonDTO> GetListPersones(int facultieId);
+
+        IEnumerable<FacultieDTO> GetAll();
+
+        FacultieDTO GetById(int id);
     }
 }

@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Reporter.Common.DTOs;
 using Reporter.DL;
@@ -13,10 +14,12 @@ namespace Reporter.BL.Services.Reports {
     {
         private IMapper _mapper;
         private ReporterDBContext _dbContext;
+        private UserManager<PersonEntity> _userManager;
 
-        public ReportService(IMapper mapper, ReporterDBContext dbContext) {
+        public ReportService(IMapper mapper, ReporterDBContext dbContext, UserManager<PersonEntity> userManager) {
             this._mapper = mapper;
             this._dbContext = dbContext;
+            this._userManager = userManager;
         }
 
         public IEnumerable<ReportDTO> GetAllReports() {
@@ -54,6 +57,18 @@ namespace Reporter.BL.Services.Reports {
                 _dbContext.Reports.Remove(report);
                 await _dbContext.SaveChangesAsync();
             }
+        }
+
+        public IEnumerable<ReportDTO> GetFiltered(int facultatyId, int departmenId) {
+            var autors = _userManager.Users;
+
+            if (facultatyId != 0)
+                autors = autors.Where(r => r.FacultieId == facultatyId);
+            if (facultatyId != 0)
+                autors = autors.Where(r => r.DepartmentId == departmenId);
+
+            return _mapper.Map<IEnumerable<ReportDTO>>(_dbContext.Reports.Where(report => autors.Select(autor => autor.Id).Contains(report.AuthorId)));
+
         }
     }
 }
