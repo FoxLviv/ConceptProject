@@ -5,15 +5,7 @@
 
 <div>
     <div class="container mb-3 text-center">
-        <h1>Your reports</h1>
-        <h6>For @Model.CurrentDepartment in @Model.CurrentFacultie</h6>
-    </div>
-
-    <div>
-        <a>Find for</a>
-
-        @Html.DropDownListFor(e => e.SelectedFaculties.Value, ViewBag.Faculties as IEnumerable<SelectListItem>)
-        @Html.DropDownListFor(e => e.SelectedDepatrments.Value, ViewBag.Depatrments as IEnumerable<SelectListItem>)
+        <h1>Reports</h1>
     </div>
 
     <div class="container row">

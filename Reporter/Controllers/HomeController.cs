@@ -52,7 +52,7 @@ namespace Reporter.Controllers
             return View(reportsListViewModel);
         }
 
-        [HttpPost]
+        [HttpGet]
         public IActionResult GetFiltered(int SelectedFaculties, int SelectedDepatrments) {
             var reports = _reportService.GetFiltered(SelectedFaculties, SelectedDepatrments);
 
