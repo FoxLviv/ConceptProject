@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using Reporter.DL.Entities;
 using System;
 
@@ -39,12 +40,34 @@ namespace Reporter.DL.Migrations
                 new PersonEntity
                 {
                     Id = "30FB2DD3-EA0E-4F05-B0DB-EF6341A593F0",
-                    Email = "burco.ab@gmail.com",
+                    Email = "admin@gmail.com",
+                    NormalizedEmail = "ADMIN@GMAIL.COM",
+                    UserName = "Admin",
+                    NormalizedUserName = "ADMIN",
                     FirstName = "Andriy",
                     LastName = "Burtso",
-                    PasswordHash = "Aa_1234",
+                    PasswordHash = "AQAAAAEAACcQAAAAEK3jzQJiCHkx2ap0J5xCP0Qab5XZqelpZKr4SwktVFnsO3n6Zo03yip4c7Q4EoNQqw==",
+                    SecurityStamp = "KCI6QACPHAQPPINNHG6JZREXNLW2NTSX",
+                    ConcurrencyStamp = "237b4742-5473-47a6-ba78-1ca569e9bed7",
+                    LockoutEnabled = true,
                     FacultieId = 1,
                     DepartmentId = 1
+                });
+            modelBuilder.Entity<IdentityRole>()
+                .HasData(
+                new IdentityRole
+                {
+                    Id = "19d016f5-8c54-4516-b6ed-91cb101099bd",
+                    Name = "Admin",
+                    NormalizedName = "ADMIN",
+                    ConcurrencyStamp = "d67661d4-b3ac-494a-a6b9-35f423f285ae"
+                });
+            modelBuilder.Entity<IdentityUserRole<string>>().
+                HasData(
+                new IdentityUserRole<string>
+                {
+                    UserId = "30FB2DD3-EA0E-4F05-B0DB-EF6341A593F0",
+                    RoleId = "19d016f5-8c54-4516-b6ed-91cb101099bd",
                 });
             modelBuilder.Entity<CommentEntity>()
                 .HasData(
