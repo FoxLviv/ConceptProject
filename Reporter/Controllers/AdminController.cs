@@ -11,6 +11,7 @@ using Reporter.Common.Models;
 using Reporter.BL.Services.Persons;
 using AutoMapper;
 using Reporter.Common.DTOs.Person;
+using Microsoft.AspNetCore.Authorization;
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -34,6 +35,7 @@ namespace Reporter.UI.Controllers
 
         }
 
+        [Authorize(Roles = "Admin")]
         // GET: /<controller>/
         public IActionResult Index()
         {
@@ -54,6 +56,7 @@ namespace Reporter.UI.Controllers
 
         public ViewResult Create() => View();
 
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public async Task<IActionResult> Create(PersonViewModel person)
         {
@@ -86,6 +89,7 @@ namespace Reporter.UI.Controllers
             return View(person);
         }
 
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Update(string id)
         {
             var user = await _userManager.FindByIdAsync(id);
@@ -108,6 +112,7 @@ namespace Reporter.UI.Controllers
                 return RedirectToAction("Index");
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public async Task<IActionResult> Update(string id, string email, string password)
         {
@@ -157,6 +162,7 @@ namespace Reporter.UI.Controllers
                 ModelState.AddModelError("", error.Description);
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public async Task<IActionResult> Delete(string id)
         {

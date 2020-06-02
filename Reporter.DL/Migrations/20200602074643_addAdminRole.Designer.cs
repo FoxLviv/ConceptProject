@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Reporter.DL;
 
 namespace Reporter.DL.Migrations
 {
     [DbContext(typeof(ReporterDBContext))]
-    partial class ReporterDBContextModelSnapshot : ModelSnapshot
+    [Migration("20200602074643_addAdminRole")]
+    partial class addAdminRole
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

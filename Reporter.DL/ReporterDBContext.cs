@@ -24,7 +24,7 @@ namespace Reporter.DL
         /// <inheritdoc/>
         protected override void OnConfiguring(DbContextOptionsBuilder optionBuilder)
         {
-            optionBuilder.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=Reporter;Trusted_Connection=True;");
+            optionBuilder.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=Reporter;Trusted_Connection=True;MultipleActiveResultSets=True");
         }
 
         /// <inheritdoc/>
